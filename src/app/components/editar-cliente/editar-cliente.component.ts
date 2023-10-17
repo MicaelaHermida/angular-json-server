@@ -17,10 +17,10 @@ export class EditarClienteComponent implements OnInit{
 
   constructor(private router: Router, private fb: FormBuilder, private clienteService: ClienteService, private activatedRoute: ActivatedRoute){
     this.forms = this.fb.group({
-      apellido: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
-      nombre: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
-      dni: ['', Validators.required],
-      fechaInicio: ['', Validators.required]
+      apellido: ['', [Validators.minLength(3), Validators.maxLength(20)]],
+      nombre: ['', [Validators.minLength(3), Validators.maxLength(20)]],
+      dni: [''],
+      fechaInicio: ['']
     });
   }
  
