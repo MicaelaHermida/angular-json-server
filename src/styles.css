@@ -1,1 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
+
 /* You can add global styles to this file, and also import other style files */
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body{
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.kanit{
+    font-family: 'Kanit', sans-serif;
+}
+
+.nanum-M{
+    font-family: 'Nanum Myeongjo', serif;
+}
+
+.client-form{
+    margin: auto;
+    margin-top: 2rem;
+    background-color: #c9abd9;
+    width: 25%;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+    padding-bottom: 3rem;
+}
+
+
+form input{
+    margin: auto;
+    width: 90%;
+    border-radius: .8rem;
+    border-color: aliceblue;
+    background-color: #fbf4ff;
+    height: 3rem;
+}
+
+form input:hover{
+    background-color: #f8ebff;
+}
+
+form input:focus{
+    outline: none;
+}
+
+.form-label{
+    font-size: large;
+    font-weight: 600;
+    margin-left: 3rem;
+    padding-top: 2rem;
+    color: #37284b;
+}
+
+.new-client-buttons{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 3rem;
+}
+
+.button{
+    background-color: #f5e5ff;
+    border-style: none;
+    border-radius: .7rem;
+    width: 25%;
+    box-shadow: .1rem .1rem .1rem .1rem #3a363cd0;
+    color: #37284b;
+    font-weight: 600;
+}
+
+.button:hover{
+    background-color: #eacbff;
+}
+
+.invalid-input{
+    border: 2px solid #ff00006b;
+}
+
+.valid-input{
+    border: 2px solid rgba(0, 209, 0, 0.253);
+}
+
+
+.fade-in-down {
+    animation: fade-in-down .5s ease-in-out ;
+  }
+  @keyframes fade-in-down {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+}

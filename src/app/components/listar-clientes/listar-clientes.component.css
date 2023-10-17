@@ -1,0 +1,64 @@
+.contenedor{
+    margin: 0 auto; /*lo pone al medio*/
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+table{
+    width: 100%;
+    border-collapse: separate;
+    margin-bottom: 2rem;
+}
+/*separate (valor por defecto): Cada celda de la tabla tiene sus propios bordes, y no se mezclan con los bordes de las celdas vecinas. Esto significa que las celdas tienen un espacio entre sus bordes. Cada celda puede tener su propio estilo de borde y espaciado.
+
+collapse: Los bordes de las celdas se fusionan y se muestran como un solo borde común. En este modo, los bordes de las celdas se juntan, eliminando el espacio entre ellos y creando un efecto de borde sólido alrededor de toda la tabla. Si varias celdas comparten un borde común, se mostrará como un solo borde.*/
+
+thead th{
+    background-color: #201526;
+    color: #e9dfff;
+    text-align: center;
+    padding: 1rem;
+    border-radius: .5rem;
+    font-size: large;
+}
+
+tbody td{
+    border: 1px solid white;
+    padding: 1rem;
+    text-align: center;
+}
+
+tbody tr:nth-child(even){
+    background-color: #e9dfff;
+}
+
+a{
+    text-decoration: none;
+    color: #201526;
+}
+
+.client-field{
+    font-size: 1.5rem;
+}
+
+.list-button{
+    width: 10%;
+    color: #201526;
+    border-radius: 1.5rem;
+    background-color: white;
+}
+
+.list-button:hover{
+    background-color: #d3e7ff;
+}
+
+
+
+.list-button:hover{
+    text-decoration: underline;
+    cursor:pointer;
+    font-weight: 600;
+}

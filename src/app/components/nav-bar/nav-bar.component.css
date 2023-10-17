@@ -1,0 +1,36 @@
+.nav-bar{
+    background-color: #201526;
+    height: 7%;
+    display: flex;
+    justify-content: end;
+    align-items: last baseline;
+    color: #e9dfff;
+}
+
+.nav-bar-list{
+    display: flex;
+    justify-content: end;
+    list-style: none;
+    font-size: large;
+}
+
+.nav-bar-list li{
+    margin-right: 1.5vw;
+    transition: transform 1s;
+    transition: all .3s ease-in-out;
+}
+
+.nav-bar-list li:hover{
+    color: #fff9fa;
+    cursor: pointer;
+    text-decoration: underline;
+    transform: translate(0px, -2px);
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+a:hover{
+    text-decoration: none;
+    color: inherit;
+}

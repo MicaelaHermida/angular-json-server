@@ -1,0 +1,22 @@
+<form class="client-form fade-in-down" [formGroup]="forms" (ngSubmit)="agregarCliente()" novalidate>
+    <label class="form-label kanit">Apellido:</label>
+    <input type="text" formControlName="apellido"
+    [class.invalid-input]="this.forms.get('apellido')?.invalid && (this.forms.get('apellido')?.touched || this.forms.get('apellido')?.dirty)"
+    [class.valid-input]="this.forms.get('apellido')?.valid">
+    <label class="form-label kanit">Nombre:</label>
+    <input type="text" formControlName="nombre" 
+    [class.invalid-input]="this.forms.get('nombre')?.invalid && (this.forms.get('nombre')?.touched || this.forms.get('nombre')?.dirty)"
+    [class.valid-input]="this.forms.get('nombre')?.valid">
+    <label class="form-label kanit">DNI:</label>
+    <input type="text" formControlName="dni" ngModel pattern="[0-9]*" 
+    [class.invalid-input]="this.forms.get('dni')?.invalid && (this.forms.get('dni')?.touched || this.forms.get('dni')?.dirty)"
+    [class.valid-input]="this.forms.get('dni')?.valid">
+    <label class="form-label kanit">Fecha de inicio:</label>
+    <input type="date" value="2023-10-16" max="2023-10-16" formControlName="fechaInicio"
+    [class.invalid-input]="this.forms.get('fechaInicio')?.invalid && (this.forms.get('fechaInicio')?.touched || this.forms.get('fechaInicio')?.dirty)"
+    [class.valid-input]="this.forms.get('fechaInicio')?.valid">
+    <div class="new-client-buttons">
+        <button class="button kanit" (click)="cancel()">CANCELAR</button>
+        <button class="button kanit" type="submit">ACEPTAR</button>
+    </div>
+</form>

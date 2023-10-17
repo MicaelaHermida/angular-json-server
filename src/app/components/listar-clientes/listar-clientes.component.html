@@ -1,0 +1,23 @@
+<div class="contenedor fade-in-down">
+    <h1 class="kanit">CLIENTES:</h1>
+    <table>
+        <thead>
+            <tr class="kanit">
+                <th>APELLIDO</th>
+                <th>NOMBRE</th>
+                <th>DNI</th>
+                <th>FECHA INICIO</th>
+            </tr>
+        </thead>
+        <tbody id="clientes">
+            <tr *ngFor="let item of lista" class="nanum-M client-field">
+                <td>{{item.apellido}}</td>
+                <td>{{item.nombre}}</td>
+                <td>{{item.dni}}</td>
+                <td>{{item.fechaInicio}}</td>
+                <td class="list-button kanit" (click)="editarUnCliente(item)">EDITAR</td>
+                <td class="list-button kanit" (click)="borrarCliente(item.id)">ELIMINAR</td>
+            </tr>            
+        </tbody>
+    </table>
+</div>
