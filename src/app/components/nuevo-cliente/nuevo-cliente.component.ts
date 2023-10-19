@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Cliente } from 'src/app/services/cliente.interface';
+import { Cliente } from 'src/app/interfaces/cliente.interface';
 import { ClienteService } from 'src/app/services/cliente.service';
 
 @Component({
@@ -12,14 +12,16 @@ import { ClienteService } from 'src/app/services/cliente.service';
 export class NuevoClienteComponent implements OnInit{
   forms: FormGroup;
 
-
   constructor(private router: Router, private fb: FormBuilder, private clienteService: ClienteService){
     this.forms = this.fb.group({
       apellido: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
       nombre: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
-      dni: ['', [Validators.required]],
+      dni: ['', [Validators.required, Validators.maxLength(8)]],
       fechaInicio: ['', Validators.required]
     });
+  }
+
+  ngOnInit(): void {
   }
 
   cancel(){ 
@@ -36,6 +38,5 @@ export class NuevoClienteComponent implements OnInit{
     await this.clienteService.postCliente(cliente); 
   }
 
-  ngOnInit(): void {
-  }
+  
 }

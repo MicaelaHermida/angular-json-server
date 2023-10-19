@@ -4,5 +4,4 @@ export interface Cliente{
     dni: number,
     fechaInicio: string,
     id: number
-  }
-  
+}

@@ -20,6 +20,13 @@
       "dni": "60",
       "fechaInicio": "2023-09-28",
       "id": 9
+    },
+    {
+      "apellido": "Hermida",
+      "nombre": "Micaela Abril",
+      "dni": "40794204",
+      "fechaInicio": "2023-10-06",
+      "id": 10
     }
   ]
 }

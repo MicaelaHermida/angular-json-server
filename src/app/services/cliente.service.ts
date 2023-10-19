@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Cliente } from "./cliente.interface";
+import { Cliente } from "../interfaces/cliente.interface";
 import { Router } from "@angular/router";
 
 @Injectable({
@@ -7,11 +7,11 @@ import { Router } from "@angular/router";
 })
 
 export class ClienteService{
-    url = 'http://localhost:3000/clientes'
+    url = 'http://localhost:3000/clientes';
 
     constructor(private router: Router){}
 
-    async getClientes(){
+    async getClientes(): Promise<Cliente[] | undefined>{
         try{
             const resultado = await fetch(this.url);
             const listaClientes = resultado.json();
@@ -19,6 +19,7 @@ export class ClienteService{
         }catch(error){
             alert('Hubo un error');
         }
+        return undefined;
     }
 
     async postCliente(cliente: Cliente){

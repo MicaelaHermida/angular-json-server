@@ -4,8 +4,15 @@ import { ListarClientesComponent } from './components/listar-clientes/listar-cli
 import { NuevoClienteComponent } from './components/nuevo-cliente/nuevo-cliente.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { EditarClienteComponent } from './components/editar-cliente/editar-cliente.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { NuevoClientePageComponent } from './pages/nuevo-cliente-page/nuevo-cliente-page.component';
+import { EditarClientePageComponent } from './pages/editar-cliente-page/editar-cliente-page.component';
 
 const routes: Routes = [
+  {
+    path: 'home',
+    component: HomePageComponent
+  },
   {
     path: 'listar-clientes', 
     component: ListarClientesComponent
@@ -18,9 +25,18 @@ const routes: Routes = [
     path: 'editar-cliente',
     component: EditarClienteComponent
   },
+  
+  {
+    path: 'new',
+    component: NuevoClientePageComponent
+  },
+  {
+    path: 'edit',
+    component: EditarClientePageComponent
+  },
   {
     path: "**",
-    redirectTo: 'listar-clientes'
+    redirectTo: 'home'
   }
 ];
 

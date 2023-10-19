@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, MaxLengthValidator, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Cliente } from 'src/app/services/cliente.interface';
+import { Cliente } from 'src/app/interfaces/cliente.interface';
 import { ClienteService } from 'src/app/services/cliente.service';
 
 @Component({
@@ -19,8 +19,8 @@ export class EditarClienteComponent implements OnInit{
     this.forms = this.fb.group({
       apellido: ['', [Validators.minLength(3), Validators.maxLength(20)]],
       nombre: ['', [Validators.minLength(3), Validators.maxLength(20)]],
-      dni: [''],
-      fechaInicio: ['']
+      dni: ['', [Validators.maxLength(8)]],
+      fechaInicio: ['', [Validators.required]]
     });
   }
  
@@ -40,16 +40,16 @@ export class EditarClienteComponent implements OnInit{
   
   async editarCliente(){
     console.log(this.forms);
-    if(this.forms.controls['apellido'].status !== 'INVALID'){
+    if(this.forms.controls['apellido'].status !== 'INVALID' && this.forms.controls['apellido'].value !== ''){
       this.cliente.apellido = this.forms.value.apellido;
     }
-    if(this.forms.controls['nombre'].status !== 'INVALID'){
+    if(this.forms.controls['nombre'].status !== 'INVALID' && this.forms.controls['nombre'].value !== ''){
       this.cliente.nombre = this.forms.value.nombre;
     }
-    if(this.forms.controls['dni'].status !== 'INVALID'){
+    if(this.forms.controls['dni'].status !== 'INVALID' && this.forms.controls['dni'].value !== ''){
       this.cliente.dni = this.forms.value.dni;
     }
-    if(this.forms.controls['fechaInicio'].status !== 'INVALID'){
+    if(this.forms.controls['fechaInicio'].status !== 'INVALID' && this.forms.controls['fechaInicio'].value !== ''){
       this.cliente.fechaInicio = this.forms.value.fechaInicio;
     }
     await this.clienteService.editCliente(this.cliente);

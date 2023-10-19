@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Cliente } from 'src/app/services/cliente.interface';
+import { Cliente } from 'src/app/interfaces/cliente.interface';
 import { ClienteService } from 'src/app/services/cliente.service';
 
 @Component({
@@ -9,12 +9,14 @@ import { ClienteService } from 'src/app/services/cliente.service';
   styleUrls: ['./listar-clientes.component.css']
 })
 export class ListarClientesComponent implements OnInit{
-  lista: Cliente[] = [];
+  lista: Cliente[] | undefined = [];
 
   constructor(private clienteService: ClienteService, private router: Router){
+    
+  }
+  ngOnInit():void{
     this.mostrarClientes();
   }
-  ngOnInit():void{}
 
   async mostrarClientes(){
     this.lista = await this.clienteService.getClientes();
@@ -27,7 +29,7 @@ export class ListarClientesComponent implements OnInit{
   }
 
   async editarUnCliente(cliente: Cliente){
-    this.router.navigate(['/editar-cliente'], {
+    this.router.navigate(['/edit'], {
       queryParams: {clienteID: cliente.id}
     });
   }
