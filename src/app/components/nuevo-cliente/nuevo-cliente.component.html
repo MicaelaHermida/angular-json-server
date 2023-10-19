@@ -1,10 +1,10 @@
 <form class="client-form fade-in-down" [formGroup]="forms" (ngSubmit)="agregarCliente()" novalidate>
     <label class="form-label kanit">Apellido:</label>
-    <input type="text" formControlName="apellido"
+    <input type="text" formControlName="apellido" ngModel pattern="[A-Za-z]*"
     [class.invalid-input]="this.forms.get('apellido')?.invalid && (this.forms.get('apellido')?.touched || this.forms.get('apellido')?.dirty)"
     [class.valid-input]="this.forms.get('apellido')?.valid">
     <label class="form-label kanit">Nombre:</label>
-    <input type="text" formControlName="nombre" 
+    <input type="text" formControlName="nombre" ngModel pattern="[A-Za-z]*"
     [class.invalid-input]="this.forms.get('nombre')?.invalid && (this.forms.get('nombre')?.touched || this.forms.get('nombre')?.dirty)"
     [class.valid-input]="this.forms.get('nombre')?.valid">
     <label class="form-label kanit">DNI:</label>

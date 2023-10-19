@@ -1,9 +1,9 @@
 <form class="client-form fade-in-down" [formGroup]="forms" (ngSubmit)="editarCliente()" novalidate>
     <label class="form-label kanit">Apellido:</label>
-    <input type="text" formControlName="apellido"
+    <input type="text" formControlName="apellido" ngModel pattern="[A-Za-z]*"
     [class.invalid-input]="this.forms.get('apellido')?.invalid && (this.forms.get('apellido')?.touched || this.forms.get('apellido')?.dirty)">
     <label class="form-label kanit">Nombre:</label>
-    <input type="text" formControlName="nombre"
+    <input type="text" formControlName="nombre" ngModel pattern="[A-Za-z]*"
     [class.invalid-input]="this.forms.get('nombre')?.invalid && (this.forms.get('nombre')?.touched || this.forms.get('nombre')?.dirty)">
     <label class="form-label kanit">DNI:</label>
     <input type="text" formControlName="dni" ngModel pattern="[0-9]*" 

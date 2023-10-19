@@ -25,6 +25,10 @@ export class ListarClientesComponent implements OnInit{
 
   async borrarCliente(id: number){
     console.log(id);
+    const ok = confirm(`Esta seguro de eliminar al cliente con id ${id}`);
+    if(!ok){
+      return;
+    }
     await this.clienteService.deleteCliente(id);
   }
 
