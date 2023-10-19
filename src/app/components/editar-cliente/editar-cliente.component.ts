@@ -29,9 +29,13 @@ export class EditarClienteComponent implements OnInit{
     this.cliente = await this.clienteService.getClienteById(this.idCliente);
     if(this.cliente !== undefined){
       this.forms.value.apellido = this.cliente.apellido;
-    this.forms.value.nombre = this.cliente.nombre;
-    this.forms.value.dni = this.cliente.dni;
-    this.forms.value.fechaInicio = this.cliente.fechaInicio;
+      this.forms.value.nombre = this.cliente.nombre;
+      this.forms.value.dni = this.cliente.dni;
+      this.forms.value.fechaInicio = this.cliente.fechaInicio;
+    }
+    else{
+      alert("Algo salio mal...");
+      
     }
   }
   /**/

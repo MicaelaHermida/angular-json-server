@@ -12,20 +12,7 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomePageComponent
-  },
-  {
-    path: 'listar-clientes', 
-    component: ListarClientesComponent
-  },
-  {
-    path: 'nuevo-cliente',
-    component: NuevoClienteComponent
-  },
-  {
-    path: 'editar-cliente',
-    component: EditarClienteComponent
-  },
-  
+  }, 
   {
     path: 'new',
     component: NuevoClientePageComponent
