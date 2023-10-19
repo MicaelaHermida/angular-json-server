@@ -61,7 +61,7 @@ export class ClienteService{
         }
     }
 
-    async getClienteById(id: Number){
+    async getClienteById(id: Number):Promise<Cliente | undefined>{
         try{
             const resultado = await fetch(`${this.url}/${id}`,
             {
@@ -72,5 +72,6 @@ export class ClienteService{
         }catch(error){
             console.error(error);
         }    
+        return undefined;
     }
 }

@@ -13,7 +13,7 @@ export class EditarClienteComponent implements OnInit{
   forms: FormGroup;
 
   idCliente: Number = -1;
-  cliente!: Cliente;
+  cliente: Cliente | undefined;
 
   constructor(private router: Router, private fb: FormBuilder, private clienteService: ClienteService, private activatedRoute: ActivatedRoute){
     this.forms = this.fb.group({
@@ -27,10 +27,10 @@ export class EditarClienteComponent implements OnInit{
   async ngOnInit():Promise<void>{
     this.idCliente = parseInt(this.activatedRoute.snapshot.queryParamMap.get('clienteID')!);
     this.cliente = await this.clienteService.getClienteById(this.idCliente);
-    this.forms.value.apellido = this.cliente!.apellido;
-    this.forms.value.nombre = this.cliente!.nombre;
-    this.forms.value.dni = this.cliente!.dni;
-    this.forms.value.fechaInicio = this.cliente!.fechaInicio;
+    this.forms.value.apellido = this.cliente?.apellido;
+    this.forms.value.nombre = this.cliente?.nombre;
+    this.forms.value.dni = this.cliente?.dni;
+    this.forms.value.fechaInicio = this.cliente?.fechaInicio;
   }
   /**/
 
@@ -41,17 +41,17 @@ export class EditarClienteComponent implements OnInit{
   async editarCliente(){
     console.log(this.forms);
     if(this.forms.controls['apellido'].status !== 'INVALID' && this.forms.controls['apellido'].value !== ''){
-      this.cliente.apellido = this.forms.value.apellido;
+      this.cliente!.apellido = this.forms.value.apellido;
     }
     if(this.forms.controls['nombre'].status !== 'INVALID' && this.forms.controls['nombre'].value !== ''){
-      this.cliente.nombre = this.forms.value.nombre;
+      this.cliente!.nombre = this.forms.value.nombre;
     }
     if(this.forms.controls['dni'].status !== 'INVALID' && this.forms.controls['dni'].value !== ''){
-      this.cliente.dni = this.forms.value.dni;
+      this.cliente!.dni = this.forms.value.dni;
     }
     if(this.forms.controls['fechaInicio'].status !== 'INVALID' && this.forms.controls['fechaInicio'].value !== ''){
-      this.cliente.fechaInicio = this.forms.value.fechaInicio;
+      this.cliente!.fechaInicio = this.forms.value.fechaInicio;
     }
-    await this.clienteService.editCliente(this.cliente);
+    await this.clienteService.editCliente(this.cliente!);
   }
 }
