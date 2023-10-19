@@ -27,10 +27,12 @@ export class EditarClienteComponent implements OnInit{
   async ngOnInit():Promise<void>{
     this.idCliente = parseInt(this.activatedRoute.snapshot.queryParamMap.get('clienteID')!);
     this.cliente = await this.clienteService.getClienteById(this.idCliente);
-    this.forms.value.apellido = this.cliente?.apellido;
-    this.forms.value.nombre = this.cliente?.nombre;
-    this.forms.value.dni = this.cliente?.dni;
-    this.forms.value.fechaInicio = this.cliente?.fechaInicio;
+    if(this.cliente !== undefined){
+      this.forms.value.apellido = this.cliente.apellido;
+    this.forms.value.nombre = this.cliente.nombre;
+    this.forms.value.dni = this.cliente.dni;
+    this.forms.value.fechaInicio = this.cliente.fechaInicio;
+    }
   }
   /**/
 
